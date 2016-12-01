@@ -3,7 +3,6 @@ class Film < ActiveRecord::Base
   belongs_to :director
 
   def self.make(params)
-    puts params.inspect
     genre = Genre.find_or_create_by(name: params[:genre])
     director = Director.find_or_create_by(name: params[:director])
 
@@ -33,7 +32,7 @@ class Film < ActiveRecord::Base
 
     film.update(title: film_params[:title])
     film.update(year: film_params[:year])
-    film.update(box_office_sales: film_params[:box_office_sales])
+    film.update(box_office_sales: film_params[:box_office_sales].to_i)
     film.update(genre_id: genre.id)
     film.update(director_id: director.id)
   end

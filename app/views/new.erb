@@ -5,22 +5,18 @@
 <form action="/films" method="post">
 
   <div class="form-group">
-    <input type="hidden" name="_method" value="PUT" />
-  </div>
-
-  <div class="form-group">
     <label>Title</label>
     <input type='text' name='film[title]' class='form-control' placeholder="Title"/><br/>
   </div>
 
   <div class="form-group">
     <label>Year</label>
-    <input type='text' name='film[year]' class='form-control' placeholder="Year"/><br/>
+    <input type='integer' name='film[year]' class='form-control' placeholder="Year"/><br/>
   </div>
 
   <div class="form-group">
     <label>Box Office Sales</label>
-    <input type='text' name='film[box_office_sales]' class='form-control' placeholder="Box Office Sales"/><br/>
+    <input type='integer' name='film[box_office_sales]' class='form-control' placeholder="Box Office Sales"/><br/>
   </div>
 
   <div class="form-group">

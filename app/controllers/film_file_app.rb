@@ -8,7 +8,7 @@ class FilmFile < Sinatra::Base
     erb :new
   end
 
-  put '/films' do
+  post '/films' do
     Film.make(params[:film])
     redirect '/films'
   end
@@ -18,8 +18,8 @@ class FilmFile < Sinatra::Base
     erb :films_index
   end
 
-  get '/films/:id' do |id|
-    @film = Film.find(id)
+  get '/films/:id' do
+    @film = Film.find(params[:id])
     erb :film
   end
 
@@ -29,8 +29,8 @@ class FilmFile < Sinatra::Base
   end
 
   put '/films/:id' do |id|
-    Film.update(id.to_i, params[:film])
-    redirect '/films/#{id}'
+    Film.update(id, params[:film])
+    redirect "/films/#{id}"
   end
 
   get '/genres' do
@@ -41,6 +41,7 @@ class FilmFile < Sinatra::Base
   get '/directors' do
     @directors = Director.all
     erb :directors_index
+    # erb :"/directors/index"
   end
 
   get '/directors/:id' do |id|
@@ -50,7 +51,7 @@ class FilmFile < Sinatra::Base
 
   delete '/films/:id' do |id|
     Film.delete(id)
-    redirect '/films'
+    redirect "/films"
   end
   
 end
