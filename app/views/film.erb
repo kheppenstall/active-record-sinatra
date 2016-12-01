@@ -1,0 +1,15 @@
+<div id="film">
+  <h1><%= @film.title %> (<%= @film.year %>)</h3>
+  <h3>Gross US Box Office Sales: $<%= @film.box_office_sales %></p>
+  <h3> Genre: <%= @film.genre.name %></p>
+  <h3>Director: <%= @film.director.name %></p>
+  <br/>
+
+  <a class="glyphicon glyphicon-edit" href="/films/<%= @film.id %>/edit"></a>
+  
+  <form action="/films/<%= @film.id %>" class="delete-form" method="POST">
+    <input name="_method" type="hidden" value="DELETE"></input>
+    <input class="btn btn-danger" type="submit" value="Delete"></input>
+</form>
+
+</div>

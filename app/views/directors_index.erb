@@ -1,0 +1,12 @@
+<h1>All Directors</h1>
+
+<div id="directors">
+  <% @directors.each do |director| %>
+    <a href="/directors/<%=director.id %>"><h2><%= director.name %></h2></a>
+    <% director.films.each do |film| %>
+      <h3><%= film.title %></h3>
+      <p>Gross US Box Office Sales: $<%= film.box_office_sales %></p>
+      <p>Genre: <%= film.genre.name %></p>
+    <% end %>
+  <% end %>
+</div>

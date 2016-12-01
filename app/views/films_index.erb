@@ -1,8 +1,13 @@
 <h1>All Films</h1>
 
 <div id="films">
+
+  <a class="btn btn-warning" href="/films/new">New Film</a>
+
   <% @films.each do |film| %>
-    <h3><%= film.title %> (<%= film.year %>)</h3>
+    <h3><a href="films/<%= film.id %>"> <%= film.title %> (<%= film.year %>)</a></h3>
     <p>Gross US Box Office Sales: $<%= film.box_office_sales %></p>
+    <p>Genre: <%= film.genre.name %></p>
+    <p>Director: <%= film.director.name %></p>
   <% end %>
 </div>

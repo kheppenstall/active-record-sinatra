@@ -1,0 +1,37 @@
+<div class='page-header'>
+   <h1>Edit <%= @film.title %></h1>
+</div>
+
+<form action="/films/<%= @film.id %>" method="post">
+
+  <div class="form-group">
+    <input type="hidden" name="_method" value="PUT" />
+  </div>
+
+  <div class="form-group">
+    <label>Title</label>
+    <input type='text' name='film[title]' class='form-control' value="<%= @film.title %>"/><br/>
+  </div>
+
+  <div class="form-group">
+    <label>Year</label>
+    <input type='text' name='film[year]' class='form-control' value="<%= @film.year %>"/><br/>
+  </div>
+
+  <div class="form-group">
+    <label>Box Office Sales</label>
+    <input type='text' name='film[box_office_sales]' class='form-control' value="<%= @film.box_office_sales %>"/><br/>
+  </div>
+
+  <div class="form-group">
+    <label>Genre</label>
+    <input type='text' name='film[genre]' class='form-control' value="<%= @film.genre.name %>"/><br/>
+  </div>
+
+  <div class="form-group">
+    <label>Director</label>
+    <input type='text' name='film[director]' class='form-control' value="<%= @film.director.name %>"/><br/>
+  </div>
+
+  <button type="submit" class="btn btn-primary">Submit</button>
+</form>
