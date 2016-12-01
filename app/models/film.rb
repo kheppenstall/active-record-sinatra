@@ -1,6 +1,9 @@
 class Film < ActiveRecord::Base
   belongs_to :genre
   belongs_to :director
+  validates :title, presence: true, uniqueness: true
+  validates :year, presence: true
+  validates :box_office_sales, presence: true
 
   def self.make(params)
     genre = Genre.find_or_create_by(name: params[:genre])
